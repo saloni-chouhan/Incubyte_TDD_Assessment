@@ -1,24 +1,36 @@
-# README
+# String Calculator TDD Kata
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project demonstrates the implementation of the String Calculator TDD Kata using Ruby on Rails, following the three laws of Test-Driven Development (TDD).
 
-Things you may want to cover:
+## About
 
-* Ruby version
+This is part of the Incubyte assessment process, showcasing:
+- Test-Driven Development practices
+- Clean, readable, and testable code
+- Proper Git workflow with frequent commits
+- Ruby on Rails best practices
 
-* System dependencies
+## The Three Laws of TDD
 
-* Configuration
+1. You are not allowed to write any production code unless it is to make a failing unit test pass.
+2. You are not allowed to write any more of a unit test than is sufficient to fail, and compilation failures are failures.
+3. You are not allowed to write any more production code than is sufficient to pass the one failing unit test.
 
-* Database creation
+## Requirements
 
-* Database initialization
+- Ruby 3.2.0 (or compatible version)
+- Rails 7.0+
+- RSpec for testing
 
-* How to run the test suite
+## Setup
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/string-calculator-tdd-kata.git
+cd string-calculator-tdd-kata
 
-* Deployment instructions
+# Install dependencies
+bundle install
 
-* ...
+# Run tests
+bundle exec rspec
