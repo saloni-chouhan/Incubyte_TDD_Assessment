@@ -33,7 +33,6 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   group :development, :test do
-    gem 'rspec-rails'
+    gem "rspec-rails"
   end
 end
-
