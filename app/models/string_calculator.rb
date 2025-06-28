@@ -39,7 +39,7 @@ class StringCalculator
   def validate_no_negatives(numbers)
     negatives = numbers.select { |n| n < 0 }
     unless negatives.empty?
-      raise "negative numbers not allowed #{negatives.join(',')}"
+      raise "negative numbers not allowed #{negatives.join(",")}"
     end
   end
 end
