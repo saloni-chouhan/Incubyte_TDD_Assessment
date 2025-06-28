@@ -3,7 +3,7 @@ class StringCalculator
     return 0 if numbers.empty?
 
     parsed_numbers = parse_numbers(numbers)
-    check_for_negatives(parsed_numbers)
+    validate_no_negatives(parsed_numbers)
     parsed_numbers.sum
   end
 
@@ -11,15 +11,23 @@ class StringCalculator
 
   def parse_numbers(numbers)
     if has_custom_delimiter?(numbers)
-      delimiter, numbers_part = extract_custom_delimiter(numbers)
-      numbers_part.split(delimiter).map(&:to_i)
+      parse_with_custom_delimiter(numbers)
     else
-      numbers.split(/[,\n]/).map(&:to_i)
+      parse_with_default_delimiters(numbers)
     end
   end
 
   def has_custom_delimiter?(numbers)
     numbers.start_with?("//")
+  end
+
+  def parse_with_custom_delimiter(numbers)
+    delimiter, numbers_part = extract_custom_delimiter(numbers)
+    numbers_part.split(delimiter).map(&:to_i)
+  end
+
+  def parse_with_default_delimiters(numbers)
+    numbers.split(/[,\n]/).map(&:to_i)
   end
 
   def extract_custom_delimiter(numbers)
@@ -28,7 +36,7 @@ class StringCalculator
     [ delimiter, numbers_part ]
   end
 
-  def check_for_negatives(numbers)
+  def validate_no_negatives(numbers)
     negatives = numbers.select { |n| n < 0 }
     unless negatives.empty?
       raise "negative numbers not allowed #{negatives.join(',')}"
