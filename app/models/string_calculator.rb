@@ -8,6 +8,12 @@ class StringCalculator
   private
 
   def parse_numbers(numbers)
-    numbers.split(/[,\n]/).map(&:to_i)
+    if numbers.start_with?("//")
+      delimiter = numbers[2]
+      numbers_part = numbers.split("\n", 2)[1]
+      numbers_part.split(delimiter).map(&:to_i)
+    else
+      numbers.split(/[,\n]/).map(&:to_i)
+    end
   end
 end
