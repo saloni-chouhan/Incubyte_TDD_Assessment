@@ -31,7 +31,7 @@ class StringCalculator
   def check_for_negatives(numbers)
     negatives = numbers.select { |n| n < 0 }
     unless negatives.empty?
-      raise "negative numbers not allowed #{negatives.first}"
+      raise "negative numbers not allowed #{negatives.join(',')}"
     end
   end
 end
