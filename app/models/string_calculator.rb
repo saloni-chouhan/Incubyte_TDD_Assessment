@@ -2,7 +2,9 @@ class StringCalculator
   def add(numbers)
     return 0 if numbers.empty?
 
-    parse_numbers(numbers).sum
+    parsed_numbers = parse_numbers(numbers)
+    check_for_negatives(parsed_numbers)
+    parsed_numbers.sum
   end
 
   private
@@ -24,5 +26,12 @@ class StringCalculator
     delimiter = numbers[2]
     numbers_part = numbers.split("\n", 2)[1]
     [ delimiter, numbers_part ]
+  end
+
+  def check_for_negatives(numbers)
+    negatives = numbers.select { |n| n < 0 }
+    unless negatives.empty?
+      raise "negative numbers not allowed #{negatives.first}"
+    end
   end
 end
